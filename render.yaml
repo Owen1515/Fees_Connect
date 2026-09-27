@@ -43,10 +43,9 @@ services:
   - key: CSRF_TRUSTED_ORIGINS
     value: https://feesconnect.com,https://www.feesconnect.com
   - key: SITE_URL
-    fromService:
-      name: feesconnect-web
-      type: web
-      envVarKey: RENDER_EXTERNAL_URL
+    # Render rejects references to another referenced variable. Keep this literal.
+    # For testing before DNS is ready, use the actual HTTPS onrender.com URL here.
+    value: https://feesconnect.com
   - key: EMAIL_HOST_USER
     value: support@feesconnect.com
   - key: DEFAULT_FROM_EMAIL
