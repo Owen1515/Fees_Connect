@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% load crispy_forms_tags %}{% block content %}
+<main id="main" class="wrap section"><div class="auth-layout"><aside class="auth-story"><p class="eyebrow">WELCOME TO FEESCONNECT</p><h1>For their next chapter.<br>From wherever you are.</h1><p>Your account, a clear payment journey and support when you need it.</p></aside>
+<section class="auth-card"><h2>{{ title }}</h2>{% block intro %}{% endblock %}
+<form method="post" novalidate>{% csrf_token %}{% if form %}{{ form|crispy }}{% endif %}<button class="button" type="submit">{{ submit_label|default:"Continue" }}</button></form>
+{% block after_form %}{% endblock %}<p><a href="{% url 'accounts:login' %}">Login</a> · <a href="{% url 'accounts:register' %}">Register</a> · <a href="{% url 'accounts:reset_request' %}">Forgot password?</a></p></section></div></main>{% endblock %}

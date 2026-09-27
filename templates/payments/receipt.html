@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<main id="main" class="wrap section"><h1>Receipt {{ receipt.number }}</h1>{% include 'payments/receipt_content.html' %}<a class="button" href="{% url 'payments:receipt_pdf' receipt.payment_id %}">Download PDF</a></main>{% endblock %}

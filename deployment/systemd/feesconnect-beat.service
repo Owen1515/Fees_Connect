@@ -1,0 +1,15 @@
+[Unit]
+Description=FeesConnect Celery beat
+After=network.target redis-server.service postgresql.service
+[Service]
+User=feesconnect
+Group=feesconnect
+WorkingDirectory=/srv/feesconnect/current
+EnvironmentFile=/etc/feesconnect.env
+ExecStart=/srv/feesconnect/current/.venv/bin/celery -A config beat --loglevel=INFO --schedule=/var/lib/feesconnect/celerybeat-schedule
+Restart=on-failure
+PrivateTmp=true
+NoNewPrivileges=true
+UMask=0077
+[Install]
+WantedBy=multi-user.target

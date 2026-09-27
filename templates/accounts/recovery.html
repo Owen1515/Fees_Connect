@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<main id="main" class="wrap section"><h1>Save your recovery codes</h1><p>Each code works once. Store these securely before leaving this page.</p><ul>{% for code in codes %}<li><code>{{ code }}</code></li>{% endfor %}</ul><a class="button" href="{% url 'dashboard:home' %}">Continue</a></main>{% endblock %}

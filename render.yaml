@@ -1,0 +1,278 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# FeesConnect Docker deployment. Read docs/RENDER.md before syncing existing services.
+# Resource names are preserved. Verify existing DB/Redis regions before applying:
+# region cannot be changed in place; this file targets Frankfurt for new resources.
+# Plans are omitted to retain existing plans (new resources use paid defaults).
+# Secrets are runtime environment variables, never Docker build arguments.
+# generateValue produces 32 random bytes; prod.py accepts this secret format.
+# Existing Blueprint sync:false credentials must be entered manually in Render.
+# Keep beat at one instance. Real payment credentials remain disabled at launch.
+databases:
+- name: feesconnect-db
+  databaseName: feesconnect
+  user: feesconnect_user
+  postgresMajorVersion: '16'
+  region: frankfurt
+services:
+- type: keyvalue
+  name: feesconnect-redis
+  ipAllowList: []
+  region: frankfurt
+  maxmemoryPolicy: noeviction
+- type: web
+  name: feesconnect-web
+  runtime: docker
+  region: frankfurt
+  branch: main
+  healthCheckPath: /readyz/
+  envVars:
+  - key: DJANGO_SETTINGS_MODULE
+    value: config.settings.prod
+  - key: DJANGO_SECRET_KEY
+    generateValue: true
+  - key: DATA_ENCRYPTION_KEY
+    generateValue: true
+  - key: MS_TENANT_ID
+    sync: false
+  - key: MS_CLIENT_ID
+    sync: false
+  - key: MS_CLIENT_SECRET
+    sync: false
+  - key: DJANGO_ALLOWED_HOSTS
+    value: feesconnect.com,www.feesconnect.com
+  - key: CSRF_TRUSTED_ORIGINS
+    value: https://feesconnect.com,https://www.feesconnect.com
+  - key: SITE_URL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: RENDER_EXTERNAL_URL
+  - key: EMAIL_HOST_USER
+    value: support@feesconnect.com
+  - key: DEFAULT_FROM_EMAIL
+    value: FeesConnect <support@feesconnect.com>
+  - key: SUPPORT_EMAIL
+    value: support@feesconnect.com
+  - key: PAYMENTS_ENABLED
+    value: 'false'
+  - key: PAYMENT_ENVIRONMENT
+    value: test
+  - key: CHAT_PROVIDER
+    value: faq
+  - key: TRUST_PROXY_HEADERS
+    value: 'false'
+  - key: DATABASE_URL
+    fromDatabase:
+      name: feesconnect-db
+      property: connectionString
+  - key: REDIS_URL
+    fromService:
+      name: feesconnect-redis
+      type: keyvalue
+      property: connectionString
+  autoDeployTrigger: commit
+  dockerfilePath: ./Dockerfile
+  dockerContext: .
+  dockerCommand: python deployment/start.py web
+  numInstances: 1
+  preDeployCommand: python deployment/start.py release
+- type: worker
+  name: feesconnect-worker
+  runtime: docker
+  region: frankfurt
+  branch: main
+  envVars:
+  - key: DJANGO_SETTINGS_MODULE
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DJANGO_SETTINGS_MODULE
+  - key: DJANGO_SECRET_KEY
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DJANGO_SECRET_KEY
+  - key: DATA_ENCRYPTION_KEY
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DATA_ENCRYPTION_KEY
+  - key: MS_TENANT_ID
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: MS_TENANT_ID
+  - key: MS_CLIENT_ID
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: MS_CLIENT_ID
+  - key: MS_CLIENT_SECRET
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: MS_CLIENT_SECRET
+  - key: DJANGO_ALLOWED_HOSTS
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DJANGO_ALLOWED_HOSTS
+  - key: CSRF_TRUSTED_ORIGINS
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: CSRF_TRUSTED_ORIGINS
+  - key: SITE_URL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: SITE_URL
+  - key: EMAIL_HOST_USER
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: EMAIL_HOST_USER
+  - key: DEFAULT_FROM_EMAIL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DEFAULT_FROM_EMAIL
+  - key: SUPPORT_EMAIL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: SUPPORT_EMAIL
+  - key: PAYMENTS_ENABLED
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: PAYMENTS_ENABLED
+  - key: PAYMENT_ENVIRONMENT
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: PAYMENT_ENVIRONMENT
+  - key: CHAT_PROVIDER
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: CHAT_PROVIDER
+  - key: TRUST_PROXY_HEADERS
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: TRUST_PROXY_HEADERS
+  - key: DATABASE_URL
+    fromDatabase:
+      name: feesconnect-db
+      property: connectionString
+  - key: REDIS_URL
+    fromService:
+      name: feesconnect-redis
+      type: keyvalue
+      property: connectionString
+  autoDeployTrigger: commit
+  dockerfilePath: ./Dockerfile
+  dockerContext: .
+  dockerCommand: python deployment/start.py worker
+  numInstances: 1
+- type: worker
+  name: feesconnect-beat
+  runtime: docker
+  region: frankfurt
+  branch: main
+  envVars:
+  - key: DJANGO_SETTINGS_MODULE
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DJANGO_SETTINGS_MODULE
+  - key: DJANGO_SECRET_KEY
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DJANGO_SECRET_KEY
+  - key: DATA_ENCRYPTION_KEY
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DATA_ENCRYPTION_KEY
+  - key: MS_TENANT_ID
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: MS_TENANT_ID
+  - key: MS_CLIENT_ID
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: MS_CLIENT_ID
+  - key: MS_CLIENT_SECRET
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: MS_CLIENT_SECRET
+  - key: DJANGO_ALLOWED_HOSTS
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DJANGO_ALLOWED_HOSTS
+  - key: CSRF_TRUSTED_ORIGINS
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: CSRF_TRUSTED_ORIGINS
+  - key: SITE_URL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: SITE_URL
+  - key: EMAIL_HOST_USER
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: EMAIL_HOST_USER
+  - key: DEFAULT_FROM_EMAIL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: DEFAULT_FROM_EMAIL
+  - key: SUPPORT_EMAIL
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: SUPPORT_EMAIL
+  - key: PAYMENTS_ENABLED
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: PAYMENTS_ENABLED
+  - key: PAYMENT_ENVIRONMENT
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: PAYMENT_ENVIRONMENT
+  - key: CHAT_PROVIDER
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: CHAT_PROVIDER
+  - key: TRUST_PROXY_HEADERS
+    fromService:
+      name: feesconnect-web
+      type: web
+      envVarKey: TRUST_PROXY_HEADERS
+  - key: DATABASE_URL
+    fromDatabase:
+      name: feesconnect-db
+      property: connectionString
+  - key: REDIS_URL
+    fromService:
+      name: feesconnect-redis
+      type: keyvalue
+      property: connectionString
+  autoDeployTrigger: commit
+  dockerfilePath: ./Dockerfile
+  dockerContext: .
+  dockerCommand: python deployment/start.py beat
+  numInstances: 1

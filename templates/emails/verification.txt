@@ -1,0 +1,7 @@
+{{ title }}
+
+Confirm your email using the secure link below.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

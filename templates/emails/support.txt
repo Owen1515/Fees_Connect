@@ -1,0 +1,7 @@
+{{ title }}
+
+Your support request has been received.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

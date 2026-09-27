@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "FeesConnect API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "csrf_token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/healthz/",
+        "header": [
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrf_token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Invoices",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/invoices/",
+        "header": [
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrf_token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Payments",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/payments/",
+        "header": [
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrf_token}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Support chat",
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/api/support/chat/",
+        "header": [
+          {
+            "key": "X-CSRFToken",
+            "value": "{{csrf_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"message\": \"How do I pay?\", \"request_id\": \"replace-with-unique-id\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

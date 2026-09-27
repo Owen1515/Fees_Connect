@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#063d2e">
+<title>Payment demonstration | FeesConnect</title>
+<meta name="description" content="A clearer school-payment experience for families. Explore FeesConnect by Travold Technologies.">
+<meta property="og:title" content="FeesConnect | School payments, clearly connected"><meta property="og:description" content="A clearer school-payment experience for families. Explore FeesConnect by Travold Technologies."><meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="styles.css"><script src="core.js" defer></script><script src="app.js" defer></script>
+<script src="site-navigation.js" defer></script></head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+<a class="brand" href="#dashboard" aria-label="FeesConnect home"><span class="feesconnect-logo"><img src="assets/feesconnect-logo.png" alt="FeesConnect" width="2172" height="724"></span><small>BY TRAVOLD TECHNOLOGIES</small></a>
+<button class="mobile-close icon-button" data-action="close-menu" aria-label="Close navigation" data-icon="close"></button>
+<p class="nav-caption">YOUR WORKSPACE</p>
+<nav class="main-nav" aria-label="Main navigation">
+<a href="#dashboard" data-nav="dashboard"><span data-icon="grid"></span>Overview</a>
+<a href="#pay" data-nav="pay"><span data-icon="send"></span>Make a payment</a>
+<a href="#activity" data-nav="activity"><span data-icon="history"></span>Payment activity</a>
+<a href="#schools" data-nav="schools"><span data-icon="school"></span>School directory</a>
+</nav>
+<div class="sidebar-bottom"><nav class="main-nav" aria-label="Help and information"><a href="index.html"><span data-icon="grid"></span>FeesConnect website</a><a href="login.html">Login to your account</a><a href="register.html">Create an account</a><a href="#help" data-nav="help"><span data-icon="help"></span>Help centre</a><a href="#about" data-nav="about"><span data-icon="info"></span>About FeesConnect</a></nav>
+<div class="sidebar-note"><span data-icon="heart"></span><p>For their next chapter.<br><strong>From wherever you are.</strong></p></div>
+<a class="parent-link" data-parent-site href="../../travold/index.html">Visit Travold Technologies <span aria-hidden="true">↗</span></a></div>
+</aside>
+<button class="menu-scrim" data-action="close-menu" aria-label="Close navigation" hidden></button>
+<div class="workspace">
+<header class="topbar"><div class="topbar-start"><button class="mobile-menu icon-button" data-action="menu" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar" data-icon="menu"></button><span id="section-name">Overview</span></div><div class="topbar-actions"><span class="preview-pill">Interactive preview</span><button class="support-top" data-action="chat"><span data-icon="chat"></span><span>Support</span></button><button class="profile-button" data-action="profile" aria-label="Open demo profile"><span class="avatar" id="profile-initials">TM</span><span class="profile-label" id="profile-name">Tendai Moyo</span><span data-icon="chevron"></span></button></div></header>
+<div class="demo-notice"><span data-icon="info"></span><p><strong>Demo workspace.</strong> Use sample details only. No real money moves and no schools or bank accounts are connected.</p></div>
+<main id="main" tabindex="-1"></main>
+<footer class="app-footer"><span>© <span id="year">2026</span> FeesConnect. A Travold Technologies product.</span><a href="#help">Help &amp; demo privacy</a></footer>
+</div></div>
+<button class="chat-launcher" data-action="chat" aria-label="Open FeesConnect support chat" aria-controls="support-dialog" aria-haspopup="dialog"><span data-icon="chat"></span><span>Need a hand?</span></button>
+<dialog id="support-dialog" class="chat-dialog" aria-labelledby="chat-title"><header class="chat-header"><span class="chat-avatar" data-icon="chat"></span><div><h2 id="chat-title">FeesConnect support</h2><p>Automated guidance</p></div><button class="icon-button" data-action="close-chat" aria-label="Close support chat" data-icon="close"></button></header><p class="chat-disclaimer">I explain the demo and payment steps. I cannot check real accounts or move money. Please do not share card details, passwords or pupil information.</p><div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Support conversation"></div><div class="chat-topics" id="chat-topics"><button data-question="How do I make a payment?">Make a payment</button><button data-question="What do the payment statuses mean?">Track a payment</button><button data-question="How are fees and exchange rates calculated?">Fees &amp; rates</button><button data-question="How can I speak to a person?">Speak to a person</button></div><form id="chat-form" class="chat-form"><label class="sr-only" for="chat-input">Your support question</label><input id="chat-input" maxlength="500" autocomplete="off" placeholder="Ask about FeesConnect…" required><button class="button primary icon-button" type="submit" aria-label="Send support question" data-icon="arrow"></button></form><div class="chat-footer"><button data-action="clear-chat">Clear conversation</button><button data-action="download-chat">Download conversation</button></div></dialog>
+<dialog id="profile-dialog" class="profile-dialog" aria-labelledby="profile-title"><div class="dialog-heading"><h2 id="profile-title">Your demo profile</h2><button class="icon-button" data-action="close-profile" aria-label="Close profile" data-icon="close"></button></div><p>This is a local preview profile, not a registered account. No password is needed.</p><form id="profile-form"><label for="demo-name">Display name</label><input id="demo-name" maxlength="60" required autocomplete="off"><button type="submit" class="button primary">Save demo profile</button></form><div class="profile-tools"><button class="text-button" data-action="restart" >Reset demo data</button><button class="text-button" data-action="signout">End demo session</button></div><p class="small muted">The preview keeps sample activity in this browser tab until you end the session or close the tab. Chat messages stay in memory until you clear them or reload.</p></dialog>
+<dialog id="confirm-dialog" class="profile-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">Reset this demo?</h2><p>This clears your demo profile, saved draft, payment records and chat in this tab.</p><div class="button-row"><button class="button secondary" data-action="cancel-reset">Keep my demo</button><button class="button primary" data-action="confirm-reset">Reset demo</button></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><div class="noscript">Enable JavaScript to explore the FeesConnect payment workspace. This template does not process real payments.</div></noscript>
+</body></html>

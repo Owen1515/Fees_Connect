@@ -1,0 +1,4352 @@
+{
+  "accounts.RoleAssignment": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this RoleAssignment record."
+    },
+    {
+      "name": "group",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "auth.Group",
+      "help_text": "Group for this RoleAssignment record."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this RoleAssignment record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this RoleAssignment record."
+    },
+    {
+      "name": "granted_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Granted by for this RoleAssignment record."
+    },
+    {
+      "name": "granted_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Granted at for this RoleAssignment record."
+    },
+    {
+      "name": "revoked_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Revoked at for this RoleAssignment record."
+    }
+  ],
+  "accounts.AccountToken": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this AccountToken record."
+    },
+    {
+      "name": "purpose",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Purpose for this AccountToken record."
+    },
+    {
+      "name": "token_digest",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Token digest for this AccountToken record."
+    },
+    {
+      "name": "email_snapshot",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Email snapshot for this AccountToken record."
+    },
+    {
+      "name": "expires_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expires at for this AccountToken record."
+    },
+    {
+      "name": "consumed_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Consumed at for this AccountToken record."
+    },
+    {
+      "name": "revoked_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Revoked at for this AccountToken record."
+    },
+    {
+      "name": "issued_auth_version",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Issued auth version for this AccountToken record."
+    }
+  ],
+  "accounts.User": [
+    {
+      "name": "password",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": ""
+    },
+    {
+      "name": "last_login",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": ""
+    },
+    {
+      "name": "is_superuser",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Designates that this user has all permissions without explicitly assigning them."
+    },
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "email",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Canonical lowercase login address."
+    },
+    {
+      "name": "full_name",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "User-provided display name."
+    },
+    {
+      "name": "phone",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Optional contact number."
+    },
+    {
+      "name": "email_verified_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Successful email challenge timestamp."
+    },
+    {
+      "name": "is_active",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Whether authentication is allowed."
+    },
+    {
+      "name": "is_staff",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Access to the restricted operator admin site."
+    },
+    {
+      "name": "date_joined",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Account creation date."
+    },
+    {
+      "name": "preferred_currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Preferred display currency."
+    },
+    {
+      "name": "locale",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Language preference."
+    },
+    {
+      "name": "auth_version",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Increment to invalidate prior sessions and tokens."
+    }
+  ],
+  "core.Currency": [
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "code",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Code for this Currency record."
+    },
+    {
+      "name": "display_name",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Display name for this Currency record."
+    },
+    {
+      "name": "symbol",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Symbol for this Currency record."
+    },
+    {
+      "name": "minor_units",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Minor units for this Currency record."
+    },
+    {
+      "name": "is_active",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Is active for this Currency record."
+    }
+  ],
+  "core.AuditEvent": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "actor",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Actor for this AuditEvent record."
+    },
+    {
+      "name": "actor_snapshot",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Actor snapshot for this AuditEvent record."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this AuditEvent record."
+    },
+    {
+      "name": "action",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Action for this AuditEvent record."
+    },
+    {
+      "name": "target_type",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Target type for this AuditEvent record."
+    },
+    {
+      "name": "target_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Target id for this AuditEvent record."
+    },
+    {
+      "name": "correlation_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Correlation id for this AuditEvent record."
+    },
+    {
+      "name": "occurred_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Occurred at for this AuditEvent record."
+    },
+    {
+      "name": "redacted_changes",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Redacted changes for this AuditEvent record."
+    },
+    {
+      "name": "outcome",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Outcome for this AuditEvent record."
+    },
+    {
+      "name": "ip_digest",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Ip digest for this AuditEvent record."
+    }
+  ],
+  "core.OutboxMessage": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "kind",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Kind for this OutboxMessage record."
+    },
+    {
+      "name": "topic",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Topic for this OutboxMessage record."
+    },
+    {
+      "name": "dedupe_key",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Dedupe key for this OutboxMessage record."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this OutboxMessage record."
+    },
+    {
+      "name": "aggregate_type",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Aggregate type for this OutboxMessage record."
+    },
+    {
+      "name": "aggregate_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Aggregate id for this OutboxMessage record."
+    },
+    {
+      "name": "template_name",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Template name for this OutboxMessage record."
+    },
+    {
+      "name": "template_version",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Template version for this OutboxMessage record."
+    },
+    {
+      "name": "encrypted_payload_key",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Encrypted payload key for this OutboxMessage record."
+    },
+    {
+      "name": "attachment_keys",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Attachment keys for this OutboxMessage record."
+    },
+    {
+      "name": "state",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "State for this OutboxMessage record."
+    },
+    {
+      "name": "attempt_count",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Attempt count for this OutboxMessage record."
+    },
+    {
+      "name": "next_attempt_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Next attempt at for this OutboxMessage record."
+    },
+    {
+      "name": "locked_until",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Locked until for this OutboxMessage record."
+    },
+    {
+      "name": "sent_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Sent at for this OutboxMessage record."
+    },
+    {
+      "name": "provider_message_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider message id for this OutboxMessage record."
+    },
+    {
+      "name": "last_error_code",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Last error code for this OutboxMessage record."
+    }
+  ],
+  "core.ImportBatch": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this ImportBatch record."
+    },
+    {
+      "name": "data_kind",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Data kind for this ImportBatch record."
+    },
+    {
+      "name": "source_filename",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source filename for this ImportBatch record."
+    },
+    {
+      "name": "source_sha256",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source sha256 for this ImportBatch record."
+    },
+    {
+      "name": "source_system",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source system for this ImportBatch record."
+    },
+    {
+      "name": "schema_version",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Schema version for this ImportBatch record."
+    },
+    {
+      "name": "effective_cutover_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Effective cutover at for this ImportBatch record."
+    },
+    {
+      "name": "submitted_by",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Submitted by for this ImportBatch record."
+    },
+    {
+      "name": "approved_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Approved by for this ImportBatch record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this ImportBatch record."
+    },
+    {
+      "name": "dry_run_report_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Dry run report key for this ImportBatch record."
+    },
+    {
+      "name": "source_key",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source key for this ImportBatch record."
+    },
+    {
+      "name": "totals",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Totals for this ImportBatch record."
+    },
+    {
+      "name": "applied_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Applied at for this ImportBatch record."
+    }
+  ],
+  "core.ImportRow": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "batch",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.ImportBatch",
+      "help_text": "Batch for this ImportRow record."
+    },
+    {
+      "name": "row_number",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Row number for this ImportRow record."
+    },
+    {
+      "name": "external_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "External id for this ImportRow record."
+    },
+    {
+      "name": "row_digest",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Row digest for this ImportRow record."
+    },
+    {
+      "name": "encrypted_source_key",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Encrypted source key for this ImportRow record."
+    },
+    {
+      "name": "validation_errors",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Validation errors for this ImportRow record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this ImportRow record."
+    },
+    {
+      "name": "target_type",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Target type for this ImportRow record."
+    },
+    {
+      "name": "target_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Target id for this ImportRow record."
+    },
+    {
+      "name": "applied_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Applied at for this ImportRow record."
+    }
+  ],
+  "fees.School": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "code",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Code for this School record."
+    },
+    {
+      "name": "legal_name",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Legal name for this School record."
+    },
+    {
+      "name": "display_name",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Display name for this School record."
+    },
+    {
+      "name": "registration_number",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Registration number for this School record."
+    },
+    {
+      "name": "country_code",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Country code for this School record."
+    },
+    {
+      "name": "address",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Address for this School record."
+    },
+    {
+      "name": "contact_email",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Contact email for this School record."
+    },
+    {
+      "name": "contact_phone",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Contact phone for this School record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this School record."
+    },
+    {
+      "name": "requested_by",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Requested by for this School record."
+    },
+    {
+      "name": "reviewed_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Reviewed by for this School record."
+    },
+    {
+      "name": "reviewed_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Reviewed at for this School record."
+    },
+    {
+      "name": "review_reason",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Review reason for this School record."
+    }
+  ],
+  "fees.AcademicPeriod": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this AcademicPeriod record."
+    },
+    {
+      "name": "code",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Code for this AcademicPeriod record."
+    },
+    {
+      "name": "label",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Label for this AcademicPeriod record."
+    },
+    {
+      "name": "starts_on",
+      "type": "DateField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Starts on for this AcademicPeriod record."
+    },
+    {
+      "name": "ends_on",
+      "type": "DateField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Ends on for this AcademicPeriod record."
+    },
+    {
+      "name": "is_active",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Is active for this AcademicPeriod record."
+    }
+  ],
+  "fees.Student": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this Student record."
+    },
+    {
+      "name": "admission_number",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Admission number for this Student record."
+    },
+    {
+      "name": "full_name",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Full name for this Student record."
+    },
+    {
+      "name": "class_label",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Class label for this Student record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this Student record."
+    },
+    {
+      "name": "submitted_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Submitted by for this Student record."
+    },
+    {
+      "name": "verified_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Verified by for this Student record."
+    },
+    {
+      "name": "verified_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Verified at for this Student record."
+    }
+  ],
+  "fees.StudentAccess": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "student",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Student",
+      "help_text": "Student for this StudentAccess record."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this StudentAccess record."
+    },
+    {
+      "name": "relationship",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Relationship for this StudentAccess record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this StudentAccess record."
+    },
+    {
+      "name": "can_pay",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Can pay for this StudentAccess record."
+    },
+    {
+      "name": "can_view_invoices",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Can view invoices for this StudentAccess record."
+    },
+    {
+      "name": "can_view_history",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Can view history for this StudentAccess record."
+    },
+    {
+      "name": "requested_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Requested at for this StudentAccess record."
+    },
+    {
+      "name": "reviewed_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Reviewed by for this StudentAccess record."
+    },
+    {
+      "name": "reviewed_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Reviewed at for this StudentAccess record."
+    },
+    {
+      "name": "verification_reference",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Verification reference for this StudentAccess record."
+    }
+  ],
+  "fees.FeeCategory": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this FeeCategory record."
+    },
+    {
+      "name": "code",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Code for this FeeCategory record."
+    },
+    {
+      "name": "name",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Name for this FeeCategory record."
+    },
+    {
+      "name": "description",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Description for this FeeCategory record."
+    },
+    {
+      "name": "is_active",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Is active for this FeeCategory record."
+    }
+  ],
+  "fees.FeeSchedule": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this FeeSchedule record."
+    },
+    {
+      "name": "period",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.AcademicPeriod",
+      "help_text": "Period for this FeeSchedule record."
+    },
+    {
+      "name": "category",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.FeeCategory",
+      "help_text": "Category for this FeeSchedule record."
+    },
+    {
+      "name": "code",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Code for this FeeSchedule record."
+    },
+    {
+      "name": "revision",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Revision for this FeeSchedule record."
+    },
+    {
+      "name": "class_label",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Class label for this FeeSchedule record."
+    },
+    {
+      "name": "amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Amount for this FeeSchedule record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this FeeSchedule record."
+    },
+    {
+      "name": "is_active",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Is active for this FeeSchedule record."
+    }
+  ],
+  "fees.Invoice": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this Invoice record."
+    },
+    {
+      "name": "student",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Student",
+      "help_text": "Student for this Invoice record."
+    },
+    {
+      "name": "period",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.AcademicPeriod",
+      "help_text": "Period for this Invoice record."
+    },
+    {
+      "name": "number",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Number for this Invoice record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this Invoice record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this Invoice record."
+    },
+    {
+      "name": "issued_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Issued at for this Invoice record."
+    },
+    {
+      "name": "due_on",
+      "type": "DateField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Due on for this Invoice record."
+    },
+    {
+      "name": "total_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Total amount for this Invoice record."
+    },
+    {
+      "name": "document_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Document key for this Invoice record."
+    },
+    {
+      "name": "document_sha256",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Document sha256 for this Invoice record."
+    },
+    {
+      "name": "import_row",
+      "type": "OneToOneField",
+      "null": true,
+      "unique": true,
+      "related_model": "core.ImportRow",
+      "help_text": "Import row for this Invoice record."
+    },
+    {
+      "name": "issued_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Issued by for this Invoice record."
+    }
+  ],
+  "fees.InvoiceLine": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "invoice",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Invoice",
+      "help_text": "Invoice for this InvoiceLine record."
+    },
+    {
+      "name": "position",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Position for this InvoiceLine record."
+    },
+    {
+      "name": "category",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.FeeCategory",
+      "help_text": "Category for this InvoiceLine record."
+    },
+    {
+      "name": "schedule",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.FeeSchedule",
+      "help_text": "Schedule for this InvoiceLine record."
+    },
+    {
+      "name": "description_snapshot",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Description snapshot for this InvoiceLine record."
+    },
+    {
+      "name": "quantity",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Quantity for this InvoiceLine record."
+    },
+    {
+      "name": "unit_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Unit amount for this InvoiceLine record."
+    },
+    {
+      "name": "line_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Line amount for this InvoiceLine record."
+    }
+  ],
+  "fees.InvoiceAdjustment": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "invoice",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Invoice",
+      "help_text": "Invoice for this InvoiceAdjustment record."
+    },
+    {
+      "name": "amount_delta",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Amount delta for this InvoiceAdjustment record."
+    },
+    {
+      "name": "reason",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Reason for this InvoiceAdjustment record."
+    },
+    {
+      "name": "source_key",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source key for this InvoiceAdjustment record."
+    },
+    {
+      "name": "approved_by",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Approved by for this InvoiceAdjustment record."
+    },
+    {
+      "name": "effective_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Effective at for this InvoiceAdjustment record."
+    },
+    {
+      "name": "document_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Document key for this InvoiceAdjustment record."
+    }
+  ],
+  "payments.MerchantAccount": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "owner_kind",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Owner kind for this MerchantAccount record."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this MerchantAccount record."
+    },
+    {
+      "name": "gateway",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Gateway for this MerchantAccount record."
+    },
+    {
+      "name": "environment",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Environment for this MerchantAccount record."
+    },
+    {
+      "name": "external_account_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "External account id for this MerchantAccount record."
+    },
+    {
+      "name": "settlement_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Settlement currency for this MerchantAccount record."
+    },
+    {
+      "name": "jurisdiction",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Jurisdiction for this MerchantAccount record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this MerchantAccount record."
+    },
+    {
+      "name": "credential_secret_ref",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Credential secret ref for this MerchantAccount record."
+    },
+    {
+      "name": "verified_capabilities",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Verified capabilities for this MerchantAccount record."
+    },
+    {
+      "name": "fee_bearer",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Fee bearer for this MerchantAccount record."
+    },
+    {
+      "name": "verified_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Verified at for this MerchantAccount record."
+    },
+    {
+      "name": "payout_destination_fingerprint",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payout destination fingerprint for this MerchantAccount record."
+    },
+    {
+      "name": "capabilities_version",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Capabilities version for this MerchantAccount record."
+    }
+  ],
+  "payments.GatewayCustomer": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this GatewayCustomer record."
+    },
+    {
+      "name": "merchant_account",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Merchant account for this GatewayCustomer record."
+    },
+    {
+      "name": "external_customer_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "External customer id for this GatewayCustomer record."
+    }
+  ],
+  "payments.SavedPaymentMethod": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "customer",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.GatewayCustomer",
+      "help_text": "Customer for this SavedPaymentMethod record."
+    },
+    {
+      "name": "external_method_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "External method id for this SavedPaymentMethod record."
+    },
+    {
+      "name": "kind",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Kind for this SavedPaymentMethod record."
+    },
+    {
+      "name": "brand",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Brand for this SavedPaymentMethod record."
+    },
+    {
+      "name": "last_four",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Last four for this SavedPaymentMethod record."
+    },
+    {
+      "name": "expiry_month",
+      "type": "PositiveIntegerField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expiry month for this SavedPaymentMethod record."
+    },
+    {
+      "name": "expiry_year",
+      "type": "PositiveIntegerField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expiry year for this SavedPaymentMethod record."
+    },
+    {
+      "name": "consented_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Consented at for this SavedPaymentMethod record."
+    },
+    {
+      "name": "consent_version",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Consent version for this SavedPaymentMethod record."
+    },
+    {
+      "name": "revoked_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Revoked at for this SavedPaymentMethod record."
+    }
+  ],
+  "payments.FeePolicy": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "version",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Version for this FeePolicy record."
+    },
+    {
+      "name": "rate_bps",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Rate bps for this FeePolicy record."
+    },
+    {
+      "name": "calculation_basis",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Calculation basis for this FeePolicy record."
+    },
+    {
+      "name": "rounding_mode",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Rounding mode for this FeePolicy record."
+    },
+    {
+      "name": "effective_from",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Effective from for this FeePolicy record."
+    },
+    {
+      "name": "effective_until",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Effective until for this FeePolicy record."
+    },
+    {
+      "name": "fx_cost_treatment",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Fx cost treatment for this FeePolicy record."
+    },
+    {
+      "name": "shortfall_treatment",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Shortfall treatment for this FeePolicy record."
+    },
+    {
+      "name": "charge_refund_policy",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Charge refund policy for this FeePolicy record."
+    },
+    {
+      "name": "approved_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Approved by for this FeePolicy record."
+    },
+    {
+      "name": "approved_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Approved at for this FeePolicy record."
+    }
+  ],
+  "payments.FXQuote": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "source_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Source currency for this FXQuote record."
+    },
+    {
+      "name": "payer_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Payer currency for this FXQuote record."
+    },
+    {
+      "name": "rate",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Rate for this FXQuote record."
+    },
+    {
+      "name": "source_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source amount for this FXQuote record."
+    },
+    {
+      "name": "payer_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payer amount for this FXQuote record."
+    },
+    {
+      "name": "provider",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider for this FXQuote record."
+    },
+    {
+      "name": "provider_quote_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider quote id for this FXQuote record."
+    },
+    {
+      "name": "merchant_account",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Merchant account for this FXQuote record."
+    },
+    {
+      "name": "executable",
+      "type": "BooleanField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Executable for this FXQuote record."
+    },
+    {
+      "name": "quoted_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Quoted at for this FXQuote record."
+    },
+    {
+      "name": "expires_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expires at for this FXQuote record."
+    },
+    {
+      "name": "rounding_delta",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Rounding delta for this FXQuote record."
+    },
+    {
+      "name": "provider_cost_amount",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider cost amount for this FXQuote record."
+    },
+    {
+      "name": "provider_cost_currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Provider cost currency for this FXQuote record."
+    },
+    {
+      "name": "metadata",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Metadata for this FXQuote record."
+    }
+  ],
+  "payments.PaymentQuote": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this PaymentQuote record."
+    },
+    {
+      "name": "invoice",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Invoice",
+      "help_text": "Invoice for this PaymentQuote record."
+    },
+    {
+      "name": "school_merchant",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "School merchant for this PaymentQuote record."
+    },
+    {
+      "name": "platform_merchant",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Platform merchant for this PaymentQuote record."
+    },
+    {
+      "name": "policy",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.FeePolicy",
+      "help_text": "Policy for this PaymentQuote record."
+    },
+    {
+      "name": "fx_quote",
+      "type": "OneToOneField",
+      "null": true,
+      "unique": true,
+      "related_model": "payments.FXQuote",
+      "help_text": "Fx quote for this PaymentQuote record."
+    },
+    {
+      "name": "principal_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Principal amount for this PaymentQuote record."
+    },
+    {
+      "name": "charge_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Charge amount for this PaymentQuote record."
+    },
+    {
+      "name": "invoice_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Invoice currency for this PaymentQuote record."
+    },
+    {
+      "name": "payer_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payer amount for this PaymentQuote record."
+    },
+    {
+      "name": "payer_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Payer currency for this PaymentQuote record."
+    },
+    {
+      "name": "expected_provider_cost",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expected provider cost for this PaymentQuote record."
+    },
+    {
+      "name": "expected_cost_currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Expected cost currency for this PaymentQuote record."
+    },
+    {
+      "name": "expected_platform_margin",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expected platform margin for this PaymentQuote record."
+    },
+    {
+      "name": "expected_margin_currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Expected margin currency for this PaymentQuote record."
+    },
+    {
+      "name": "payment_method",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payment method for this PaymentQuote record."
+    },
+    {
+      "name": "settlement_plan",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Settlement plan for this PaymentQuote record."
+    },
+    {
+      "name": "capabilities_version",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Capabilities version for this PaymentQuote record."
+    },
+    {
+      "name": "expires_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expires at for this PaymentQuote record."
+    },
+    {
+      "name": "accepted_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Accepted at for this PaymentQuote record."
+    },
+    {
+      "name": "request_digest",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Request digest for this PaymentQuote record."
+    }
+  ],
+  "payments.Payment": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this Payment record."
+    },
+    {
+      "name": "invoice",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Invoice",
+      "help_text": "Invoice for this Payment record."
+    },
+    {
+      "name": "quote",
+      "type": "OneToOneField",
+      "null": true,
+      "unique": true,
+      "related_model": "payments.PaymentQuote",
+      "help_text": "Quote for this Payment record."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this Payment record."
+    },
+    {
+      "name": "merchant_account",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Merchant account for this Payment record."
+    },
+    {
+      "name": "reference",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Reference for this Payment record."
+    },
+    {
+      "name": "amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Amount for this Payment record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this Payment record."
+    },
+    {
+      "name": "principal_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Principal amount for this Payment record."
+    },
+    {
+      "name": "principal_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Principal currency for this Payment record."
+    },
+    {
+      "name": "charge_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Charge amount for this Payment record."
+    },
+    {
+      "name": "charge_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Charge currency for this Payment record."
+    },
+    {
+      "name": "gateway",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Gateway for this Payment record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this Payment record."
+    },
+    {
+      "name": "idempotency_key",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Idempotency key for this Payment record."
+    },
+    {
+      "name": "request_digest",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Request digest for this Payment record."
+    },
+    {
+      "name": "gateway_ref",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Gateway ref for this Payment record."
+    },
+    {
+      "name": "metadata",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Metadata for this Payment record."
+    },
+    {
+      "name": "succeeded_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Succeeded at for this Payment record."
+    },
+    {
+      "name": "review_reason",
+      "type": "TextField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Review reason for this Payment record."
+    },
+    {
+      "name": "import_row",
+      "type": "OneToOneField",
+      "null": true,
+      "unique": true,
+      "related_model": "core.ImportRow",
+      "help_text": "Import row for this Payment record."
+    }
+  ],
+  "payments.PaymentAttempt": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this PaymentAttempt record."
+    },
+    {
+      "name": "attempt_number",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Attempt number for this PaymentAttempt record."
+    },
+    {
+      "name": "provider_idempotency_key",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Provider idempotency key for this PaymentAttempt record."
+    },
+    {
+      "name": "provider_reference",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider reference for this PaymentAttempt record."
+    },
+    {
+      "name": "state",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "State for this PaymentAttempt record."
+    },
+    {
+      "name": "submitted_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Submitted at for this PaymentAttempt record."
+    },
+    {
+      "name": "completed_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Completed at for this PaymentAttempt record."
+    },
+    {
+      "name": "error_code",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Error code for this PaymentAttempt record."
+    },
+    {
+      "name": "request_digest",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Request digest for this PaymentAttempt record."
+    },
+    {
+      "name": "safe_response",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Safe response for this PaymentAttempt record."
+    },
+    {
+      "name": "encrypted_poll_url",
+      "type": "TextField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Encrypted poll url for this PaymentAttempt record."
+    }
+  ],
+  "payments.InvoiceReservation": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "invoice",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Invoice",
+      "help_text": "Invoice for this InvoiceReservation record."
+    },
+    {
+      "name": "payment",
+      "type": "OneToOneField",
+      "null": false,
+      "unique": true,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this InvoiceReservation record."
+    },
+    {
+      "name": "principal_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Principal amount for this InvoiceReservation record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this InvoiceReservation record."
+    },
+    {
+      "name": "expires_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expires at for this InvoiceReservation record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this InvoiceReservation record."
+    }
+  ],
+  "payments.PaymentAllocation": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "payment",
+      "type": "OneToOneField",
+      "null": false,
+      "unique": true,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this PaymentAllocation record."
+    },
+    {
+      "name": "invoice",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "fees.Invoice",
+      "help_text": "Invoice for this PaymentAllocation record."
+    },
+    {
+      "name": "principal_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Principal amount for this PaymentAllocation record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this PaymentAllocation record."
+    },
+    {
+      "name": "allocated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Allocated at for this PaymentAllocation record."
+    },
+    {
+      "name": "source_key",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Source key for this PaymentAllocation record."
+    },
+    {
+      "name": "allocated_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Allocated by for this PaymentAllocation record."
+    }
+  ],
+  "payments.AllocationAdjustment": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "allocation",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.PaymentAllocation",
+      "help_text": "Allocation for this AllocationAdjustment record."
+    },
+    {
+      "name": "refund",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Refund",
+      "help_text": "Refund for this AllocationAdjustment record."
+    },
+    {
+      "name": "dispute",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Dispute",
+      "help_text": "Dispute for this AllocationAdjustment record."
+    },
+    {
+      "name": "delta",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Delta for this AllocationAdjustment record."
+    },
+    {
+      "name": "reason",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Reason for this AllocationAdjustment record."
+    },
+    {
+      "name": "source_key",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Source key for this AllocationAdjustment record."
+    },
+    {
+      "name": "effective_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Effective at for this AllocationAdjustment record."
+    },
+    {
+      "name": "approved_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Approved by for this AllocationAdjustment record."
+    }
+  ],
+  "payments.Refund": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this Refund record."
+    },
+    {
+      "name": "reference",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Reference for this Refund record."
+    },
+    {
+      "name": "requested_by",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Requested by for this Refund record."
+    },
+    {
+      "name": "approved_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Approved by for this Refund record."
+    },
+    {
+      "name": "principal_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Principal amount for this Refund record."
+    },
+    {
+      "name": "principal_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Principal currency for this Refund record."
+    },
+    {
+      "name": "payer_principal_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payer principal amount for this Refund record."
+    },
+    {
+      "name": "charge_refund_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Charge refund amount for this Refund record."
+    },
+    {
+      "name": "payer_refund_total",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payer refund total for this Refund record."
+    },
+    {
+      "name": "payer_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Payer currency for this Refund record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this Refund record."
+    },
+    {
+      "name": "reason",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Reason for this Refund record."
+    },
+    {
+      "name": "idempotency_key",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Idempotency key for this Refund record."
+    },
+    {
+      "name": "gateway_ref",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Gateway ref for this Refund record."
+    },
+    {
+      "name": "provider_cost_amount",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider cost amount for this Refund record."
+    },
+    {
+      "name": "provider_cost_currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Provider cost currency for this Refund record."
+    },
+    {
+      "name": "approved_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Approved at for this Refund record."
+    },
+    {
+      "name": "completed_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Completed at for this Refund record."
+    },
+    {
+      "name": "safe_metadata",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Safe metadata for this Refund record."
+    }
+  ],
+  "payments.WebhookEvent": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "merchant_account",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Merchant account for this WebhookEvent record."
+    },
+    {
+      "name": "gateway",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Gateway for this WebhookEvent record."
+    },
+    {
+      "name": "dedupe_key",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Dedupe key for this WebhookEvent record."
+    },
+    {
+      "name": "external_event_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "External event id for this WebhookEvent record."
+    },
+    {
+      "name": "event_type",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Event type for this WebhookEvent record."
+    },
+    {
+      "name": "payload_digest",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payload digest for this WebhookEvent record."
+    },
+    {
+      "name": "encrypted_payload_key",
+      "type": "TextField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Encrypted payload key for this WebhookEvent record."
+    },
+    {
+      "name": "signature_verified_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Signature verified at for this WebhookEvent record."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this WebhookEvent record."
+    },
+    {
+      "name": "processing_status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Processing status for this WebhookEvent record."
+    },
+    {
+      "name": "attempt_count",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Attempt count for this WebhookEvent record."
+    },
+    {
+      "name": "next_retry_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Next retry at for this WebhookEvent record."
+    },
+    {
+      "name": "processed_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Processed at for this WebhookEvent record."
+    },
+    {
+      "name": "error_code",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Error code for this WebhookEvent record."
+    }
+  ],
+  "payments.SettlementEntry": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this SettlementEntry record."
+    },
+    {
+      "name": "refund",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Refund",
+      "help_text": "Refund for this SettlementEntry record."
+    },
+    {
+      "name": "dispute",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Dispute",
+      "help_text": "Dispute for this SettlementEntry record."
+    },
+    {
+      "name": "merchant_account",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Merchant account for this SettlementEntry record."
+    },
+    {
+      "name": "beneficiary",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Beneficiary for this SettlementEntry record."
+    },
+    {
+      "name": "kind",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Kind for this SettlementEntry record."
+    },
+    {
+      "name": "direction",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Direction for this SettlementEntry record."
+    },
+    {
+      "name": "amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Amount for this SettlementEntry record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this SettlementEntry record."
+    },
+    {
+      "name": "provider_transaction_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider transaction id for this SettlementEntry record."
+    },
+    {
+      "name": "provider_line_id",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider line id for this SettlementEntry record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this SettlementEntry record."
+    },
+    {
+      "name": "settled_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Settled at for this SettlementEntry record."
+    },
+    {
+      "name": "bank_payout_ref",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Bank payout ref for this SettlementEntry record."
+    },
+    {
+      "name": "evidence_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Evidence key for this SettlementEntry record."
+    },
+    {
+      "name": "reversal_of",
+      "type": "OneToOneField",
+      "null": true,
+      "unique": true,
+      "related_model": "payments.SettlementEntry",
+      "help_text": "Reversal of for this SettlementEntry record."
+    }
+  ],
+  "payments.ReconciliationRun": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "merchant_account",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.MerchantAccount",
+      "help_text": "Merchant account for this ReconciliationRun record."
+    },
+    {
+      "name": "started_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Started at for this ReconciliationRun record."
+    },
+    {
+      "name": "finished_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Finished at for this ReconciliationRun record."
+    },
+    {
+      "name": "period_start",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Period start for this ReconciliationRun record."
+    },
+    {
+      "name": "period_end",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Period end for this ReconciliationRun record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this ReconciliationRun record."
+    },
+    {
+      "name": "trigger",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Trigger for this ReconciliationRun record."
+    },
+    {
+      "name": "initiated_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Initiated by for this ReconciliationRun record."
+    },
+    {
+      "name": "counts",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Counts for this ReconciliationRun record."
+    },
+    {
+      "name": "report_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Report key for this ReconciliationRun record."
+    },
+    {
+      "name": "error_code",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Error code for this ReconciliationRun record."
+    }
+  ],
+  "payments.ReconciliationItem": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "run",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.ReconciliationRun",
+      "help_text": "Run for this ReconciliationItem record."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this ReconciliationItem record."
+    },
+    {
+      "name": "settlement_entry",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.SettlementEntry",
+      "help_text": "Settlement entry for this ReconciliationItem record."
+    },
+    {
+      "name": "source_reference",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Source reference for this ReconciliationItem record."
+    },
+    {
+      "name": "issue_type",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Issue type for this ReconciliationItem record."
+    },
+    {
+      "name": "expected_amount",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Expected amount for this ReconciliationItem record."
+    },
+    {
+      "name": "actual_amount",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Actual amount for this ReconciliationItem record."
+    },
+    {
+      "name": "currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Currency for this ReconciliationItem record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this ReconciliationItem record."
+    },
+    {
+      "name": "resolution_note",
+      "type": "TextField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Resolution note for this ReconciliationItem record."
+    },
+    {
+      "name": "resolved_by",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Resolved by for this ReconciliationItem record."
+    },
+    {
+      "name": "resolved_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Resolved at for this ReconciliationItem record."
+    }
+  ],
+  "payments.Receipt": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "payment",
+      "type": "OneToOneField",
+      "null": false,
+      "unique": true,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this Receipt record."
+    },
+    {
+      "name": "number",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Number for this Receipt record."
+    },
+    {
+      "name": "immutable_snapshot",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Immutable snapshot for this Receipt record."
+    },
+    {
+      "name": "pdf_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Pdf key for this Receipt record."
+    },
+    {
+      "name": "pdf_sha256",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Pdf sha256 for this Receipt record."
+    },
+    {
+      "name": "rendering_status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Rendering status for this Receipt record."
+    },
+    {
+      "name": "issued_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Issued at for this Receipt record."
+    },
+    {
+      "name": "template_version",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Template version for this Receipt record."
+    },
+    {
+      "name": "last_error_code",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Last error code for this Receipt record."
+    }
+  ],
+  "payments.Dispute": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this Dispute record."
+    },
+    {
+      "name": "provider_reference",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider reference for this Dispute record."
+    },
+    {
+      "name": "payer_amount",
+      "type": "DecimalField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Payer amount for this Dispute record."
+    },
+    {
+      "name": "payer_currency",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Payer currency for this Dispute record."
+    },
+    {
+      "name": "reason",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Reason for this Dispute record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this Dispute record."
+    },
+    {
+      "name": "opened_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Opened at for this Dispute record."
+    },
+    {
+      "name": "response_due_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Response due at for this Dispute record."
+    },
+    {
+      "name": "resolved_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Resolved at for this Dispute record."
+    },
+    {
+      "name": "provider_fee",
+      "type": "DecimalField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider fee for this Dispute record."
+    },
+    {
+      "name": "provider_fee_currency",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "core.Currency",
+      "help_text": "Provider fee currency for this Dispute record."
+    },
+    {
+      "name": "evidence_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Evidence key for this Dispute record."
+    }
+  ],
+  "support.SupportTicket": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "reference",
+      "type": "CharField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Reference for this SupportTicket record."
+    },
+    {
+      "name": "opened_by",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Opened by for this SupportTicket record."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this SupportTicket record."
+    },
+    {
+      "name": "payment",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "payments.Payment",
+      "help_text": "Payment for this SupportTicket record."
+    },
+    {
+      "name": "subject",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Subject for this SupportTicket record."
+    },
+    {
+      "name": "category",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Category for this SupportTicket record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this SupportTicket record."
+    },
+    {
+      "name": "assigned_to",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Assigned to for this SupportTicket record."
+    },
+    {
+      "name": "resolved_at",
+      "type": "DateTimeField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Resolved at for this SupportTicket record."
+    }
+  ],
+  "support.TicketMessage": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "ticket",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "support.SupportTicket",
+      "help_text": "Ticket for this TicketMessage record."
+    },
+    {
+      "name": "author",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "Author for this TicketMessage record."
+    },
+    {
+      "name": "author_kind",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Author kind for this TicketMessage record."
+    },
+    {
+      "name": "body",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Body for this TicketMessage record."
+    },
+    {
+      "name": "visibility",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Visibility for this TicketMessage record."
+    },
+    {
+      "name": "sent_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Sent at for this TicketMessage record."
+    }
+  ],
+  "support.ChatConversation": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "user",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "accounts.User",
+      "help_text": "User for this ChatConversation record."
+    },
+    {
+      "name": "school",
+      "type": "ForeignKey",
+      "null": true,
+      "unique": false,
+      "related_model": "fees.School",
+      "help_text": "School for this ChatConversation record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this ChatConversation record."
+    },
+    {
+      "name": "ticket",
+      "type": "OneToOneField",
+      "null": true,
+      "unique": true,
+      "related_model": "support.SupportTicket",
+      "help_text": "Ticket for this ChatConversation record."
+    },
+    {
+      "name": "consent_version",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Consent version for this ChatConversation record."
+    },
+    {
+      "name": "retention_until",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Retention until for this ChatConversation record."
+    },
+    {
+      "name": "last_activity_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Last activity at for this ChatConversation record."
+    }
+  ],
+  "support.ChatMessage": [
+    {
+      "name": "id",
+      "type": "UUIDField",
+      "null": false,
+      "unique": true,
+      "related_model": null,
+      "help_text": "Opaque stable record identifier."
+    },
+    {
+      "name": "created_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC creation timestamp."
+    },
+    {
+      "name": "updated_at",
+      "type": "DateTimeField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "UTC last write timestamp."
+    },
+    {
+      "name": "conversation",
+      "type": "ForeignKey",
+      "null": false,
+      "unique": false,
+      "related_model": "support.ChatConversation",
+      "help_text": "Conversation for this ChatMessage record."
+    },
+    {
+      "name": "role",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Role for this ChatMessage record."
+    },
+    {
+      "name": "sequence",
+      "type": "PositiveIntegerField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Sequence for this ChatMessage record."
+    },
+    {
+      "name": "content",
+      "type": "TextField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Content for this ChatMessage record."
+    },
+    {
+      "name": "request_key",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Request key for this ChatMessage record."
+    },
+    {
+      "name": "status",
+      "type": "CharField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Status for this ChatMessage record."
+    },
+    {
+      "name": "provider",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Provider for this ChatMessage record."
+    },
+    {
+      "name": "model_name",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Model name for this ChatMessage record."
+    },
+    {
+      "name": "upstream_request_id",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Upstream request id for this ChatMessage record."
+    },
+    {
+      "name": "token_usage",
+      "type": "JSONField",
+      "null": false,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Token usage for this ChatMessage record."
+    },
+    {
+      "name": "redacted_error_code",
+      "type": "CharField",
+      "null": true,
+      "unique": false,
+      "related_model": null,
+      "help_text": "Redacted error code for this ChatMessage record."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{{ title }}
+
+Your account has been created. Verify your email to continue.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

@@ -1,0 +1,2 @@
+# Exact tested environment, including test and lint tools.
+-r requirements.lock

@@ -1,0 +1,1 @@
+external_id,school_code,invoice_number,payer_email,principal_amount,principal_currency,charge_amount,payer_total,payer_currency,gateway,gateway_reference,paid_at,already_in_opening_balance

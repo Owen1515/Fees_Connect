@@ -1,0 +1,9 @@
+{% load static %}
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}{{ title|default:"FeesConnect" }}{% endblock %} | FeesConnect</title>
+<link rel="icon" href="{% static 'feesconnect/assets/favicon.svg' %}"><link rel="stylesheet" href="{% static 'feesconnect/site.css' %}">
+<link rel="stylesheet" href="{% static 'feesconnect/django.css' %}">{% block styles %}{% endblock %}
+<script src="{% static 'feesconnect/backend.js' %}" defer></script>{% block scripts %}{% endblock %}</head>
+<body><a class="skip-link" href="#main">Skip to content</a>{% include 'includes/header.html' %}
+{% if messages %}<div class="wrap" role="status">{% for message in messages %}<p class="notice {{ message.tags }}">{{ message }}</p>{% endfor %}</div>{% endif %}
+{% block content %}{% endblock %}{% include 'includes/footer.html' %}</body></html>

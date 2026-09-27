@@ -1,0 +1,7 @@
+[Unit]
+Description=Run FeesConnect backup daily
+[Timer]
+OnCalendar=*-*-* 02:15:00 UTC
+Persistent=true
+[Install]
+WantedBy=timers.target

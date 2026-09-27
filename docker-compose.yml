@@ -1,0 +1,36 @@
+# Production example. Supply .env.production and terminate TLS at Nginx.
+services:
+  web:
+    build: .
+    env_file: .env.production
+    ports: ["127.0.0.1:8000:8000"]
+    volumes: ["private:/app/private"]
+    depends_on: [db, redis]
+    restart: unless-stopped
+  worker:
+    build: .
+    command: python deployment/start.py worker
+    env_file: .env.production
+    volumes: ["private:/app/private"]
+    depends_on: [db, redis]
+    restart: unless-stopped
+  beat:
+    build: .
+    command: python deployment/start.py beat
+    env_file: .env.production
+    depends_on: [db, redis]
+    restart: unless-stopped
+  db:
+    image: postgres:16
+    env_file: .env.database
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    restart: unless-stopped
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes: ["redisdata:/data"]
+    restart: unless-stopped
+volumes:
+  pgdata:
+  redisdata:
+  private:

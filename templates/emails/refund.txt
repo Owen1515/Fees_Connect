@@ -1,0 +1,7 @@
+{{ title }}
+
+Your refund has been confirmed by the provider. Your bank may take additional time to credit it.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

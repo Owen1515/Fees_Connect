@@ -1,0 +1,7 @@
+[Unit]
+Description=FeesConnect daily PostgreSQL backup
+[Service]
+Type=oneshot
+User=feesconnect
+Environment=PGHOST=127.0.0.1 PGUSER=feesconnect PGDATABASE=feesconnect
+ExecStart=/srv/feesconnect/current/deployment/backup.sh

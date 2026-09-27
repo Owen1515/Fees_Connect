@@ -1,0 +1,7 @@
+{{ title }}
+
+Your payment is awaiting confirmation. Please complete the provider prompt and avoid paying again.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

@@ -1,0 +1,7 @@
+{{ title }}
+
+Your payment has been confirmed. Your PDF receipt is attached. School bank settlement is tracked separately.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: feesconnect
+      POSTGRES_USER: feesconnect
+      POSTGRES_PASSWORD: local-development-only
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U feesconnect"]
+      interval: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+  web:
+    build: .
+    command: sh -c "python manage.py migrate && python manage.py bootstrap && python manage.py runserver 0.0.0.0:8000"
+    environment: &environment
+      DJANGO_SETTINGS_MODULE: config.settings.dev
+      DATABASE_URL: postgresql://feesconnect:local-development-only@db:5432/feesconnect
+      REDIS_URL: redis://redis:6379/0
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      db: {condition: service_healthy}
+  worker:
+    build: .
+    command: celery -A config worker -l INFO
+    environment: *environment
+    depends_on: [db, redis, web]
+  beat:
+    build: .
+    command: celery -A config beat -l INFO --schedule=/tmp/celerybeat-schedule
+    environment: *environment
+    depends_on: [db, redis, web]
+volumes:
+  pgdata:

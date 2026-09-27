@@ -1,0 +1,7 @@
+{{ title }}
+
+Your FeesConnect email configuration is working.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

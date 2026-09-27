@@ -1,0 +1,120 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+django: version: 5.2.17, settings: config.settings.test (from ini)
+rootdir: /workspace/scratch/606958521af3/render-investigation/Fees-Connect-main
+configfile: pyproject.toml
+plugins: cov-7.1.0, django-4.14.0, Faker-40.39.0
+collected 106 items
+
+tests/test_business.py ........                                          [  7%]
+tests/test_deployment.py .                                               [  8%]
+tests/test_integrations.py ........                                      [ 16%]
+tests/test_operations_otp.py ....                                        [ 19%]
+tests/test_web_auth.py ...............................................   [ 64%]
+tests/test_postgres_concurrency.py s                                     [ 65%]
+tests/test_business.py .......                                           [ 71%]
+tests/test_deployment.py ......................                          [ 92%]
+tests/test_integrations.py .......                                       [ 99%]
+tests/test_operations_otp.py .                                           [100%]
+
+=============================== warnings summary ===============================
+tests/test_business.py: 1 warning
+tests/test_integrations.py: 2 warnings
+tests/test_operations_otp.py: 3 warnings
+tests/test_web_auth.py: 47 warnings
+  /workspace/scratch/606958521af3/render-check-venv/lib/python3.12/site-packages/django/core/handlers/base.py:61: UserWarning: No directory at: /workspace/scratch/606958521af3/render-investigation/Fees-Connect-main/staticfiles/
+    mw_instance = middleware(adapted_handler)
+
+tests/test_integrations.py::test_worker_email_receipt_and_retry
+  /workspace/scratch/606958521af3/render-check-venv/lib/python3.12/site-packages/weasyprint/text/ffi.py:528: DeprecationWarning: HarfBuzz-Subset will be required by future versions of WeasyPrint. Please install this library with your package manager.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.14-final-0 _______________
+
+Name                                                      Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------------------------
+apps/__init__.py                                              0      0   100%
+apps/accounts/__init__.py                                     0      0   100%
+apps/accounts/access.py                                      25      3    88%   32, 47, 56
+apps/accounts/admin.py                                       33      5    85%   62, 66, 70, 74, 78
+apps/accounts/apps.py                                         5      0   100%
+apps/accounts/forms.py                                       51      2    96%   56, 75
+apps/accounts/managers.py                                    15      4    73%   16, 24-27
+apps/accounts/middleware.py                                  23      2    91%   30-31
+apps/accounts/models.py                                      47      0   100%
+apps/accounts/services.py                                    50      1    98%   69
+apps/accounts/urls.py                                         5      0   100%
+apps/accounts/views.py                                      148      8    95%   41-42, 99-100, 112-113, 159, 182
+apps/api/__init__.py                                          0      0   100%
+apps/api/apps.py                                              5      0   100%
+apps/api/urls.py                                              4      0   100%
+apps/api/views.py                                            33      1    97%   46
+apps/core/__init__.py                                         0      0   100%
+apps/core/admin.py                                           33      9    73%   19, 23, 27, 31, 35, 39-40, 48, 52
+apps/core/apps.py                                             5      0   100%
+apps/core/base.py                                            10      0   100%
+apps/core/email.py                                           28      4    86%   41-44
+apps/core/logging.py                                          5      0   100%
+apps/core/management/__init__.py                              0      0   100%
+apps/core/management/commands/__init__.py                     0      0   100%
+apps/core/management/commands/approve_school.py              29      1    97%   33
+apps/core/management/commands/bootstrap.py                   16      0   100%
+apps/core/management/commands/export_schema.py               11      0   100%
+apps/core/management/commands/import_students.py             52      3    94%   37, 39, 80
+apps/core/management/commands/process_jobs.py                 7      0   100%
+apps/core/management/commands/send_test_email.py             13      0   100%
+apps/core/management/commands/wait_for_services.py           34      5    85%   28, 36, 40, 49-50
+apps/core/middleware.py                                      26      5    81%   42-46
+apps/core/models.py                                          82      0   100%
+apps/core/security.py                                        30      5    83%   19, 41-43, 45
+apps/core/services.py                                         9      0   100%
+apps/core/tasks.py                                           57      4    93%   21-24, 79
+apps/core/urls.py                                             5      0   100%
+apps/core/views.py                                           26      1    96%   26
+apps/dashboard/__init__.py                                    0      0   100%
+apps/dashboard/apps.py                                        5      0   100%
+apps/dashboard/urls.py                                        4      0   100%
+apps/dashboard/views.py                                       9      0   100%
+apps/fees/__init__.py                                         0      0   100%
+apps/fees/apps.py                                             5      0   100%
+apps/fees/forms.py                                           24      0   100%
+apps/fees/models.py                                         123      0   100%
+apps/fees/services.py                                        39      3    92%   39, 57, 59
+apps/fees/urls.py                                             4      0   100%
+apps/fees/views.py                                           81      8    90%   93, 97-98, 125, 128, 153-155
+apps/payments/__init__.py                                     0      0   100%
+apps/payments/apps.py                                         5      0   100%
+apps/payments/forms.py                                       20      1    95%   49
+apps/payments/management/__init__.py                          0      0   100%
+apps/payments/management/commands/__init__.py                 0      0   100%
+apps/payments/management/commands/import_settlements.py      45     45     0%   3-82
+apps/payments/management/commands/replay_webhook.py          14     14     0%   3-25
+apps/payments/models.py                                     298      0   100%
+apps/payments/services/__init__.py                            0      0   100%
+apps/payments/services/checkout.py                          102     17    83%   66, 69, 78, 82, 86, 100, 107, 111-121, 157, 159, 163, 166, 175, 182, 184, 189
+apps/payments/services/documents.py                          22      3    86%   19, 27-28
+apps/payments/services/gateways/__init__.py                  10      3    70%   15-17
+apps/payments/services/gateways/base.py                      21      0   100%
+apps/payments/services/gateways/paynow.py                    70      5    93%   63, 73, 96, 105, 125
+apps/payments/services/gateways/paypal.py                    44      2    95%   41, 51
+apps/payments/services/gateways/stripe.py                    29      1    97%   26
+apps/payments/services/lifecycle.py                         146     29    80%   53, 137-141, 152, 156-157, 168, 171, 190-191, 226-241
+apps/payments/services/settlement.py                         11     11     0%   3-38
+apps/payments/tasks.py                                       88     31    65%   44, 48-49, 57-87, 89, 91, 112, 117-120, 137, 149-155
+apps/payments/urls.py                                         4      0   100%
+apps/payments/views.py                                       90     17    81%   76-77, 192-214
+apps/payments/webhooks.py                                    69      8    88%   92-93, 99-106, 108, 111, 126
+apps/support/__init__.py                                      0      0   100%
+apps/support/apps.py                                          5      0   100%
+apps/support/models.py                                       53      0   100%
+apps/support/services.py                                     43      3    93%   46, 53, 75
+apps/support/urls.py                                          4      0   100%
+apps/support/views.py                                        22      0   100%
+---------------------------------------------------------------------------------------
+TOTAL                                                      2431    264    89%
+Coverage HTML written to dir htmlcov
+Coverage JSON written to file docs/coverage.json
+Required test coverage of 85% reached. Total coverage: 89.14%
+================= 105 passed, 1 skipped, 54 warnings in 13.33s =================

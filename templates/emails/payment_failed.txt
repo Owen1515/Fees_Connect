@@ -1,0 +1,7 @@
+{{ title }}
+
+Your payment could not be completed. Check your account before trying again.
+{% if link %}{{ link }}{% endif %}
+{% if reference %}Reference: {{ reference }}{% endif %}
+
+FeesConnect | {{ support_email }}

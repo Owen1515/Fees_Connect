@@ -1,0 +1,1 @@
+payment_reference,merchant_account_id,beneficiary,kind,direction,amount,currency,provider_transaction_id,provider_line_id,bank_payout_ref
